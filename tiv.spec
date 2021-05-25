@@ -10,6 +10,7 @@ Source:  %{name}-git.tar.gz
 URL: https://github.com/stefanhaustein/TerminalImageViewer
 BuildRoot: %{_tmppath}/%{name}-%{version}-build   
 #BuildRequires: -post-build-checks -rpmlint-Factory -rpmlint-mini  -rpmlint
+Requires: ImageMagick  
 BuildRequires: gcc-c++ pkgconfig ImageMagick  
 
 %if 0%{?centos} || 0%{?rhel}
