@@ -20,7 +20,6 @@ BuildRequires: libstdc++-devel libstdc++
 %if  0%{?mageia} 
 BuildRequires: libstdc++-devel libstdc++
 %endif
-
 #BuildRequires: libX11-devel
 #%else
 #BuildRequires: xorg-x11-devel 
