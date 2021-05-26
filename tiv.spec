@@ -53,7 +53,7 @@ cd src/main/cpp
 %if 0%{?suse_version} > 1500 	
 echo "Ok"
 %else
-sed -i 's/filesystem/experimental\/filesystem/' tiv.cpp
+sed -i 's/<filesystem/<experimental\/filesystem/' tiv.cpp
 %endif
 make %{?_smp_mflags}
 
