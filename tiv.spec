@@ -56,12 +56,12 @@ echo "Ok"
 sed -i 's/<filesystem/<experimental\/filesystem/' tiv.cpp
 sed -i 's/::filesystem/::experimental::filesystem/' tiv.cpp
 %endif
-make %{?_smp_mflags}
+#make %{?_smp_mflags}
 
-%if 0%{?rhel_version} ||  0%{?centos_ver} ||  0%{?suse_version} < 1500
 g++ -Wall -fpermissive -fexceptions -O2 -c tiv.cpp -o tiv.o
-g++ tiv.o -o tiv -lstdc++ -pthread -s
-%endif
+#g++ tiv.o -o tiv -lstdc++ -pthread -s
+g++ tiv.o -o tiv  -pthread  -lstdc++fs 
+
 
 
 %install
