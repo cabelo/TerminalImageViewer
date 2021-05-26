@@ -65,7 +65,6 @@ cd $RPM_SOURCE_DIR/tiv
 cd src/main/cpp
 install -d %{buildroot}/usr/bin
 install -d %{buildroot}/usr/share/licenses/tiv 
-%if 0%{?sle_version} 
 install -d %{buildroot}/usr/share/doc/packages/tiv
 cp tiv %{buildroot}/usr/bin/tiv
 cp ../../../LICENSE %{buildroot}/usr/share/licenses/tiv
