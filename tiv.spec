@@ -54,6 +54,7 @@ cd src/main/cpp
 echo "Ok"
 %else
 sed -i 's/<filesystem/<experimental\/filesystem/' tiv.cpp
+sed -i 's/::filesystem/::experimental::filesystem/' tiv.cpp
 %endif
 make %{?_smp_mflags}
 
