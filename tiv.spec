@@ -50,7 +50,11 @@ fi
 %build
 cd $RPM_SOURCE_DIR/tiv
 cd src/main/cpp
-
+%if 0%{?suse_version} > 1500 	
+echo "Ok"
+%else
+sed -i 's/filesystem/experimental\/filesystem/' tiv.cpp
+%endif
 make %{?_smp_mflags}
 
 %if 0%{?rhel_version} ||  0%{?centos_ver} ||  0%{?suse_version} < 1500
@@ -61,7 +65,6 @@ g++ tiv.o -o tiv -lstdc++ -pthread -s
 
 %install
 cd $RPM_SOURCE_DIR/tiv
-#cd $RPM_SOURCE_DIR
 cd src/main/cpp
 install -d %{buildroot}/usr/bin
 install -d %{buildroot}/usr/share/licenses/tiv 
