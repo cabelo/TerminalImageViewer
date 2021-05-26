@@ -52,15 +52,15 @@ cd $RPM_SOURCE_DIR/tiv
 cd src/main/cpp
 %if 0%{?suse_version} > 1500 	
 echo "Ok"
+make %{?_smp_mflags}
 %else
 sed -i 's/<filesystem/<experimental\/filesystem/' tiv.cpp
 sed -i 's/::filesystem/::experimental::filesystem/' tiv.cpp
-%endif
-#make %{?_smp_mflags}
-
 g++ -Wall -fpermissive -fexceptions -O2 -c tiv.cpp -o tiv.o
-#g++ tiv.o -o tiv -lstdc++ -pthread -s
 g++ tiv.o -o tiv  -pthread  -lstdc++fs 
+%endif
+
+#g++ tiv.o -o tiv -lstdc++ -pthread -s
 
 
 
